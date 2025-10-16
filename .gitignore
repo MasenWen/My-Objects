@@ -1,0 +1,6 @@
+out/ 
+*.jar 
+*.iml 
+*.DS_Store 
+people.txt 
+people_backup.txt 
