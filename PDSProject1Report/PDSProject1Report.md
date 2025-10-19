@@ -3,12 +3,10 @@
 **<p align="center">Masen Wen</p>**
 **<p align="center">2025-10-18</p>**
 
----
 
-* 实验代码&实验报告已上传Github
+* 实验代码&实验报告已上传Github  //MarkDown版本更清晰
   * https://github.com/MasenWen/My-Objects/tree/main
   * https://github.com/MasenWen/My-Objects/blob/main/PDSProject1Report/PDSProject1Report.md
-  * MarkDown版本更清晰
 
 ---
 
