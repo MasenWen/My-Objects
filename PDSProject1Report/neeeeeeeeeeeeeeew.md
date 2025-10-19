@@ -27,7 +27,7 @@
 * File与DBMS对比实验
   * [Experiment01上——【缓存】重复3遍提速87倍证明Cache价值](#Experiment01上-缓存-重复3遍提速87倍证明Cache价值)
   * [Experiment01下——【缓存】干扰Cache命中率后无法提速证明Cache工作原理](#Experiment01下-缓存-干扰Cache命中率后无法提速证明Cache工作原理)
-  * [Experiment02——大批量Update实验](#Experiment02-大批量Update实验)
+  * [Experiment02——【高 IO】大批量Update实验](#Experiment02-高IO-大批量Update实验)
   * [Experiment03——【优化器】不同SELECT语句查询计划相同证明DBMS有优化器](#Experiment03-优化器-不同SELECT语句查询计划相同证明DBMS有优化器)
   * [准备大数据集-使用工具导入800万条记录](#准备大数据集-使用工具导入800万条记录)
   * [Experiment04——8千到800万条数据的查询性能对比](#Experiment04-8千到800万条数据的查询性能对比)
@@ -422,7 +422,7 @@ sudo systemctl restart postgresql
 
 
 
-## Experiment02-大批量Update实验
+## Experiment02-高IO-大批量Update实验
 
 * **实验方法**
   * UPDATE people SET first_name = replace(first_name,'TTOO','to') WHERE first_name LIKE '%TTOO%';
