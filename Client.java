@@ -19,155 +19,169 @@ public class Client {
             // 实验1-1 找到Star Wars电影 对比时间
             //
 
-            db_r1 = dm.findMovieByTitleStrict("Star Wars");
-            dm.findMovieByTitleStrict("Star Wars");
-            db_r3 = dm.findMovieByTitleStrict("Star Wars");
-
-            file_r1 = fm.findMovieByTitleStrict("Star Wars");
-            fm.findMovieByTitleStrict("Star Wars");
-            file_r3 = fm.findMovieByTitleStrict("Star Wars");
-
-            compareLog_file_db_withCaches(db_r1, db_r3, file_r1, file_r3);
-
-            //System.out.println(om.findMovieByTitleStrict("Star Wars"));
-            //System.out.println(dm.findMovieByTitleStrict("Star Wars"));
+//            db_r1 = dm.findMovieByTitleStrict("Star Wars");
+//            dm.findMovieByTitleStrict("Star Wars");
+//            db_r3 = dm.findMovieByTitleStrict("Star Wars");
+//
+//            file_r1 = fm.findMovieByTitleStrict("Star Wars");
+//            fm.findMovieByTitleStrict("Star Wars");
+//            file_r3 = fm.findMovieByTitleStrict("Star Wars");
+//
+//            compareLog_file_db_withCaches(db_r1, db_r3, file_r1, file_r3);
+//
+//            //System.out.println(om.findMovieByTitleStrict("Star Wars"));
+//            //System.out.println(dm.findMovieByTitleStrict("Star Wars"));
+//
+//            //
+//            // 实验1-2 检索“Star”开头的电影名 对比时间
+//            //
+//            db_r1 = dm.findMovieByTitleLike("Star");
+//            dm.findMovieByTitleLike("Star");
+//            db_r3 = dm.findMovieByTitleLike("Star");
+//
+//            file_r1 = fm.findMovieByTitleLike("Star");
+//            fm.findMovieByTitleLike("Star");
+//            file_r3 = fm.findMovieByTitleLike("Star");
+//
+//            compareLog_file_db_withCaches(db_r1, db_r3, file_r1, file_r3);
+//
+//            //
+//            // 实验2 替换人名中的所有“to”为“TTOO” 对比时间
+//            //
+//
+//            file_r1 = fm.updatePeopleNamesTTOO();
+//            fm.refreshTTOO();
+//            fm.updatePeopleNamesTTOO();
+//            fm.refreshTTOO();
+//            file_r3 = fm.updatePeopleNamesTTOO();
+//            fm.refreshTTOO();
+//
+//            db_r1 = dm.updatePeopleNamesTTOO();
+//            dm.refreshTTOO();
+//            dm.updatePeopleNamesTTOO();
+//            dm.refreshTTOO();
+//            db_r3 = dm.updatePeopleNamesTTOO();
+//            dm.refreshTTOO();
+//
+//            compareLog_file_db_withCaches(db_r1, db_r3, file_r1, file_r3);
+//
+//
+//            //
+//            // 实验3 对于课上的查询优化器例子中的逻辑查询语句进行对比
+//            //
+//
+//            System.out.println(fm.findMovieByConstraintNationAndReleaseYear_usingGoodLogic("us", 1940, 1949));
+//
+//            System.out.println(fm.findMovieByConstraintNationAndReleaseYear_usingBadLogic("us", 1940, 1949));
+//
+//
+//            //
+//            //  实验4 大批量SELECT实验 检索带有载有4个人的trip
+//            //
+//
+//            System.out.println("Size = 8K");
+//            compareLog_file_db(dm.findTripOf_n_Passengers(4,1), fm.findTripOf_n_Passengers(4,1));
+//            System.out.println();
+//
+//            System.out.println("Size = 80K");
+//            compareLog_file_db(dm.findTripOf_n_Passengers(4,2), fm.findTripOf_n_Passengers(4,2));
+//            System.out.println();
+//
+//            System.out.println("Size = 800K");
+//            compareLog_file_db(dm.findTripOf_n_Passengers(4,3), fm.findTripOf_n_Passengers(4,3));
+//            System.out.println();
+//
+//            System.out.println("Size = 8M");
+//            compareLog_file_db(dm.findTripOf_n_Passengers(4,4), fm.findTripOf_n_Passengers(4,4));
+//            System.out.println();
+//
+//
+//            System.out.println("Size = 8K");
+//            compareLog_db_og(dm.findTripOf_n_Passengers(4,1), om.findTripOf_n_Passengers(4,1));
+//            System.out.println();
+//
+//            System.out.println("Size = 80K");
+//            compareLog_db_og(dm.findTripOf_n_Passengers(4,2), om.findTripOf_n_Passengers(4,2));
+//            System.out.println();
+//
+//            System.out.println("Size = 800K");
+//            compareLog_db_og(dm.findTripOf_n_Passengers(4,3), om.findTripOf_n_Passengers(4,3));
+//            System.out.println();
+//
+//            System.out.println("Size = 8M");
+//            compareLog_db_og(dm.findTripOf_n_Passengers(4,4), om.findTripOf_n_Passengers(4,4));
+//            System.out.println();
+//
+//            //
+//            //  实验5 大批量Update实验 将trip_distance = d的值设为 -d
+//            //
+//
+//            System.out.println("Size = 8K");
+//            compareLog_file_db(dm.updateDistance_mt_d(4, 1), fm.updateDistance_mt_d(4, 1));
+//            dm.refreshDistance_mt_d(4,1);
+//            fm.refreshDistance_mt_d(4,1);
+//            System.out.println();
+//
+//            System.out.println("Size = 80K");
+//            compareLog_file_db(dm.updateDistance_mt_d(4, 2), fm.updateDistance_mt_d(4, 2));
+//            dm.refreshDistance_mt_d(4,2);
+//            fm.refreshDistance_mt_d(4,2);
+//            System.out.println();
+//
+//            System.out.println("Size = 800K");
+//            compareLog_file_db(dm.updateDistance_mt_d(4, 3), fm.updateDistance_mt_d(4, 3));
+//            dm.refreshDistance_mt_d(4,3);
+//            fm.refreshDistance_mt_d(4,3);
+//            System.out.println();
+//
+//            System.out.println("Size = 8M");
+//            compareLog_file_db(dm.updateDistance_mt_d(4, 4), fm.updateDistance_mt_d(4, 4));
+//            dm.refreshDistance_mt_d(4,4);
+//            fm.refreshDistance_mt_d(4,4);
+//            System.out.println();
+//
+//
+//            System.out.println("Size = 8K");
+//            compareLog_db_og(dm.updateDistance_mt_d(4, 1), om.updateDistance_mt_d(4, 1));
+//            dm.refreshDistance_mt_d(4,1);
+//            om.refreshDistance_mt_d(4,1);
+//            System.out.println();
+//
+//            System.out.println("Size = 80K");
+//            compareLog_db_og(dm.updateDistance_mt_d(4, 2), om.updateDistance_mt_d(4, 2));
+//            dm.refreshDistance_mt_d(4,2);
+//            om.refreshDistance_mt_d(4,2);
+//            System.out.println();
+//
+//            System.out.println("Size = 800K");
+//            compareLog_db_og(dm.updateDistance_mt_d(4, 3), om.updateDistance_mt_d(4, 3));
+//            dm.refreshDistance_mt_d(4,3);
+//            om.refreshDistance_mt_d(4,3);
+//            System.out.println();
+//
+//            System.out.println("Size = 8M");
+//            compareLog_db_og(dm.updateDistance_mt_d(4, 4), om.updateDistance_mt_d(4, 4));
+//            dm.refreshDistance_mt_d(4,4);
+//            om.refreshDistance_mt_d(4,4);
+//            System.out.println();
 
             //
-            // 实验1-2 检索“Star”开头的电影名 对比时间
-            //
-            db_r1 = dm.findMovieByTitleLike("Star");
-            dm.findMovieByTitleLike("Star");
-            db_r3 = dm.findMovieByTitleLike("Star");
-
-            file_r1 = fm.findMovieByTitleLike("Star");
-            fm.findMovieByTitleLike("Star");
-            file_r3 = fm.findMovieByTitleLike("Star");
-
-            compareLog_file_db_withCaches(db_r1, db_r3, file_r1, file_r3);
-
-            //
-            // 实验2 替换人名中的所有“to”为“TTOO” 对比时间
+            // 实验6 添加了索引的方法 (仅实验PostgreSQL和OpenGauss)
             //
 
-            file_r1 = fm.updatePeopleNamesTTOO();
-            fm.refreshTTOO();
-            fm.updatePeopleNamesTTOO();
-            fm.refreshTTOO();
-            file_r3 = fm.updatePeopleNamesTTOO();
-            fm.refreshTTOO();
+            String noIdxStrict = dm.findMovieByTitleStrict("Star Wars");
+            String noIdxLike = dm.findMovieByTitleLike("Star Wars");
+            String IdxStrict = dm.findMovieByTitleStrict_withIdx("Star Wars");
+            String IdxLike = dm.findMovieByTitleLike_withIdx("Star Wars");
+            String noIdxStrictOg = om.findMovieByTitleStrict("Star Wars");
+            String noIdxLikeOg = om.findMovieByTitleLike("Star Wars");
+            String IdxStrictOg = om.findMovieByTitleStrict_withIdx("Star Wars");
+            String IdxLikeOg = om.findMovieByTitleLike_withIdx("Star Wars");
 
-            db_r1 = dm.updatePeopleNamesTTOO();
-            dm.refreshTTOO();
-            dm.updatePeopleNamesTTOO();
-            dm.refreshTTOO();
-            db_r3 = dm.updatePeopleNamesTTOO();
-            dm.refreshTTOO();
-
-            compareLog_file_db_withCaches(db_r1, db_r3, file_r1, file_r3);
-
-
-            //
-            // 实验3 对于课上的查询优化器例子中的逻辑查询语句进行对比
-            //
-
-            System.out.println(dm.findMovieByConstraintNationAndReleaseYear_usingGoodLogic("us", 1940, 1949));
-
-            System.out.println(dm.findMovieByConstraintNationAndReleaseYear_usingBadLogic("us", 1940, 1949));
-
-            System.out.println(fm.findMovieByConstraintNationAndReleaseYear_usingGoodLogic("us", 1940, 1949));
-
-            System.out.println(fm.findMovieByConstraintNationAndReleaseYear_usingBadLogic("us", 1940, 1949));
-
-
-            //
-            //  实验4 大批量SELECT实验 检索带有载有4个人的trip
-            //
-
-            System.out.println("Size = 8K");
-            compareLog_file_db(dm.findTripOf_n_Passengers(4,1), fm.findTripOf_n_Passengers(4,1));
-            System.out.println();
-
-            System.out.println("Size = 80K");
-            compareLog_file_db(dm.findTripOf_n_Passengers(4,2), fm.findTripOf_n_Passengers(4,2));
-            System.out.println();
-
-            System.out.println("Size = 800K");
-            compareLog_file_db(dm.findTripOf_n_Passengers(4,3), fm.findTripOf_n_Passengers(4,3));
-            System.out.println();
-
-            System.out.println("Size = 8M");
-            compareLog_file_db(dm.findTripOf_n_Passengers(4,4), fm.findTripOf_n_Passengers(4,4));
-            System.out.println();
-
-
-            System.out.println("Size = 8K");
-            compareLog_db_og(dm.findTripOf_n_Passengers(4,1), om.findTripOf_n_Passengers(4,1));
-            System.out.println();
-
-            System.out.println("Size = 80K");
-            compareLog_db_og(dm.findTripOf_n_Passengers(4,2), om.findTripOf_n_Passengers(4,2));
-            System.out.println();
-
-            System.out.println("Size = 800K");
-            compareLog_db_og(dm.findTripOf_n_Passengers(4,3), om.findTripOf_n_Passengers(4,3));
-            System.out.println();
-
-            System.out.println("Size = 8M");
-            compareLog_db_og(dm.findTripOf_n_Passengers(4,4), om.findTripOf_n_Passengers(4,4));
-            System.out.println();
-
-            //
-            //  实验5 大批量Update实验 将trip_distance = d的值设为 -d
-            //
-
-            System.out.println("Size = 8K");
-            compareLog_file_db(dm.updateDistance_mt_d(4, 1), fm.updateDistance_mt_d(4, 1));
-            dm.refreshDistance_mt_d(4,1);
-            fm.refreshDistance_mt_d(4,1);
-            System.out.println();
-
-            System.out.println("Size = 80K");
-            compareLog_file_db(dm.updateDistance_mt_d(4, 2), fm.updateDistance_mt_d(4, 2));
-            dm.refreshDistance_mt_d(4,2);
-            fm.refreshDistance_mt_d(4,2);
-            System.out.println();
-
-            System.out.println("Size = 800K");
-            compareLog_file_db(dm.updateDistance_mt_d(4, 3), fm.updateDistance_mt_d(4, 3));
-            dm.refreshDistance_mt_d(4,3);
-            fm.refreshDistance_mt_d(4,3);
-            System.out.println();
-
-            System.out.println("Size = 8M");
-            compareLog_file_db(dm.updateDistance_mt_d(4, 4), fm.updateDistance_mt_d(4, 4));
-            dm.refreshDistance_mt_d(4,4);
-            fm.refreshDistance_mt_d(4,4);
-            System.out.println();
-
-
-            System.out.println("Size = 8K");
-            compareLog_db_og(dm.updateDistance_mt_d(4, 1), om.updateDistance_mt_d(4, 1));
-            dm.refreshDistance_mt_d(4,1);
-            om.refreshDistance_mt_d(4,1);
-            System.out.println();
-
-            System.out.println("Size = 80K");
-            compareLog_db_og(dm.updateDistance_mt_d(4, 2), om.updateDistance_mt_d(4, 2));
-            dm.refreshDistance_mt_d(4,2);
-            om.refreshDistance_mt_d(4,2);
-            System.out.println();
-
-            System.out.println("Size = 800K");
-            compareLog_db_og(dm.updateDistance_mt_d(4, 3), om.updateDistance_mt_d(4, 3));
-            dm.refreshDistance_mt_d(4,3);
-            om.refreshDistance_mt_d(4,3);
-            System.out.println();
-
-            System.out.println("Size = 8M");
-            compareLog_db_og(dm.updateDistance_mt_d(4, 4), om.updateDistance_mt_d(4, 4));
-            dm.refreshDistance_mt_d(4,4);
-            om.refreshDistance_mt_d(4,4);
-            System.out.println();
+            compareLog_noIdx_Idx(noIdxStrict, IdxStrict);
+            compareLog_noIdx_Idx(noIdxLike, IdxLike);
+            compareLog_noIdx_Idx(noIdxStrictOg, IdxStrictOg);
+            compareLog_noIdx_Idx(noIdxLikeOg, IdxLikeOg);
 
 
         } catch (IllegalArgumentException e) {
@@ -237,6 +251,24 @@ public class Client {
         System.out.println();
         System.out.printf("相比之下前者者比后者慢 %.2f%%%n", (100.0 * (db_ - og_) / og_));
         System.out.println();
+    }
+
+    public static void compareLog_noIdx_Idx(String withoutIndex, String withIndex) {
+        long withoutIdx = getLong(withoutIndex);
+        long withIdx = getLong(withIndex);
+
+        System.out.println("未使用索引的执行时间:");
+        System.out.println(withoutIndex);
+        System.out.println();
+
+        System.out.println("使用索引的执行时间:");
+        System.out.println(withIndex);
+        System.out.println();
+
+        System.out.println("索引性能对比:");
+        System.out.printf("相比之下使用索引比未使用索引快 %.2f%%%n", (100.0 * (withoutIdx - withIdx) / withoutIdx));
+        System.out.println();
+
     }
 
     public static long getLong(String str) {

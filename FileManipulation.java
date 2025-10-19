@@ -436,6 +436,16 @@ public class FileManipulation implements DataManipulation {
         return "Runtime of this [File] updateDistance_mt_d is " + timer.stop() + "ns";
     }
 
+    @Override
+    public String findMovieByTitleStrict_withIdx(String title) {
+        return "";
+    }
+
+    @Override
+    public String findMovieByTitleLike_withIdx(String like) {
+        return "";
+    }
+
     class FullInformation {
         int runTime;
         String information;

@@ -460,4 +460,99 @@ public class DatabaseManipulation implements DataManipulation {
         }
         return result;
     }
+
+    @Override
+    public String findMovieByTitleStrict_withIdx(String title) {
+        getConnection();
+
+        // 先创建索引（不计时）
+        try {
+            String createIndexSQL = "CREATE INDEX IF NOT EXISTS idx_movies_title ON movies (title)";
+            try (Statement stmt = con.createStatement()) {
+                stmt.execute(createIndexSQL);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        // 开始计时（只计时查询操作）
+        MillisecondTimer timer = new MillisecondTimer();
+        timer.start();
+        System.out.println();
+        String result = "";
+
+        try {
+            String sql = "select * from movies where title = ?";
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            preparedStatement.setString(1, title);
+            resultSet = preparedStatement.executeQuery();
+            result = "Runtime of this [Database] findMovieByTitleStrict_withIdx is " + timer.stop() + "ns";
+
+            while (resultSet.next()) {
+                String str = "";
+                str += resultSet.getString("movieid");
+                str += ";";
+                str += resultSet.getString("title");
+                str += ";";
+                str += resultSet.getString("country");
+                str += ";";
+                str += resultSet.getString("year_released");
+                str += ";";
+                str += resultSet.getString("runtime");
+                str += ";";
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeConnection();
+        }
+        return result;
+    }
+
+    @Override
+    public String findMovieByTitleLike_withIdx(String like) {
+        getConnection();
+
+        // 先创建索引（不计时）
+        try {
+            String createIndexSQL = "CREATE INDEX IF NOT EXISTS idx_movies_title_lower ON movies (LOWER(title))";
+            try (Statement stmt = con.createStatement()) {
+                stmt.execute(createIndexSQL);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        MillisecondTimer timer = new MillisecondTimer();
+        timer.start();
+        System.out.println();
+        String result = "";
+
+        try {
+            String sql = "select * from movies where title like ?";
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            preparedStatement.setString(1, like + "%");
+            resultSet = preparedStatement.executeQuery();
+            result = "Runtime of this [Database] findMovieByTitleLike_withIdx is " + timer.stop() + "ns";
+
+            while (resultSet.next()) {
+                String str = "";
+                str += resultSet.getString("movieid");
+                str += ";";
+                str += resultSet.getString("title");
+                str += ";";
+                str += resultSet.getString("country");
+                str += ";";
+                str += resultSet.getString("year_released");
+                str += ";";
+                str += resultSet.getString("runtime");
+                str += ";";
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeConnection();
+        }
+        return result;
+    }
 }
