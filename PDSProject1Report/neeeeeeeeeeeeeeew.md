@@ -845,8 +845,7 @@ rate_code | store_and_forward | end_lon | end_lat | payment_type | fare_amt | su
 	* **更多性能优化**
 	     * 硬件设计是加强数据库能力最直接的方式
 	     * 数据库使用者对于表的设计同样重要
-	![image.png](df958484-3ba4-41c8-80a8-f7c12fe54cb7.png)
-
+         ![image.png](1设计003.png)
 
 * **总结4：性能之外 还有很多也要考虑(如OpenGauss的很多设计)**
      * 安全 
